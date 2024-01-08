@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Note from "../Note/Note";
 import  io  from "socket.io-client";
+import PORT from "../../dbport/dbport.jsx";
 // import axios from 'axios';
-const socket=io.connect("http://localhost:3030");
+const socket=io.connect(`http://localhost:${PORT}`);
 
 const text= {
   fontSize: "0.75rem",

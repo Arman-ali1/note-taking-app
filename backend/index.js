@@ -4,12 +4,18 @@ import http from 'http';
 import {Server} from "socket.io"
 import dbconn from './src/db/dbconn.js';
 import Chat from './src/module/chat.module.js';
+import dotenv from"dotenv" 
 
+
+dotenv.config({path:"./.env"});
 const app = express();
 dbconn()
 const server = http.createServer(app)
 
-app.use(cors())
+app.use(cors({
+  origin: process.env.CORS_ORIGIN,
+    credentials: true
+}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

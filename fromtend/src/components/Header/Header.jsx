@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 
+
+
 import InputForm from './InputForm'
 
 
@@ -12,21 +14,23 @@ function Header() {
       name: 'Create Note',
     }, 
     
+    
   ]
 
   const [showform,setShowform] = useState(false);
   const AddNote = ()=>{
     setShowform((showform)=>!showform)
-    const navigate=useNavigate();
+    
   }
+  
  //css
   const buttoncss = {
     button :{
         "--color": "#0077ff",
         "fontFamily": "inherit",
         "display": "inline-block",
-        "width": "6em",
-        "height":" 2.6em",
+        "width": "10em",
+        "height":" 2.8em",
         "lineHeight": "2.5em",
         "overflow": "hidden",
         "cursor": "pointer",
@@ -45,8 +49,11 @@ function Header() {
 
   return (
     <header className='py-3 shadow bg-gray-500'>
+    
      <nav>
+     
         <ul style={buttoncss.list}>
+        
             {
                 navItems.map((item)=>(
                     <li key={item}>

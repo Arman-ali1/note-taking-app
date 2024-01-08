@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 // import axios from 'axios';
 import io from 'socket.io-client'
+import PORT from "../../dbport/dbport.jsx";
 
 const InputFormcss = {
   display: "flex",
@@ -70,7 +71,7 @@ const InputFormcss = {
   },
 };
 
-const socket=io.connect("http://localhost:3030");
+const socket=io.connect(`http://localhost:${PORT}`);
 function InputForm() {
   const [author, setAuthor] = useState();
   const [title, setTitle] = useState();

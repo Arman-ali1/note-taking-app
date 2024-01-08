@@ -4,9 +4,10 @@ import editing from "../../assets/edit.svg"
 import check from "../../assets/check.svg"
 // import axios from 'axios';
 import io from 'socket.io-client'
+import PORT from "../../dbport/dbport.jsx";
 
 
-const socket=io.connect("http://localhost:3030");
+const socket=io.connect(`http://localhost:${PORT}`);
 const notecss = {
   "boxSizing": " border-box",
   "minWidth": "300px",

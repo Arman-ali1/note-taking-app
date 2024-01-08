@@ -1,4 +1,4 @@
-########Breadcrumbsnote-taking-app <br>
+########note-taking-app <br>
 set up and installation <br>
 1 step-clone or download zip file of repository <br>
 loacaly set up======== <br>

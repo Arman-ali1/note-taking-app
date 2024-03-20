@@ -60,12 +60,16 @@ function NoteContainer() {
     })
     console.log("end useE");
   }, [socket])
+  useEffect(()=>{
+    socket.emit("all-message",{});
+  } ,[])
+
   return (
     <div>
       <label htmlFor="input" style={text} className="text">
           Chat-Container
         </label>
-      <div style={containercss}>
+      <div >
         {notes.map((note) => (
           <div key={note._id}>
             <Note  {...note} />

@@ -30,8 +30,16 @@ const io=new Server(server,{
 
 io.on("connection",(socket)=>{
     console.log(`User Connected: ${socket.id}`);
+
+    socket.on("all-message", async(data)=>{
+      console.log("all message");
+      const getAllChat=await Chat.find();
+      // console.log(getAllChat);
+      socket.emit("receive_message",getAllChat)
+    })
+
     socket.on("send_message",async(data)=>{
-      console.log(data.author);
+      // console.log(data.author);
       const author=data.author;
       const title=data.title;
       const content=data.content
@@ -45,7 +53,7 @@ io.on("connection",(socket)=>{
         const saveChat = await newChate.save();
         console.log("Chate created");
         const getAllChat=await Chat.find();
-        console.log(getAllChat);
+        // console.log(getAllChat);
         socket.emit("receive_message",getAllChat)
         socket.broadcast.emit("receive_message",getAllChat)
       } catch (error) {
@@ -57,13 +65,13 @@ io.on("connection",(socket)=>{
     /////////////////////////////////////delete
     socket.on("delete_chat",async(data)=>{
       // console.log(data)
-      console.log(data.id);
+      // console.log(data.id);
       const _id=data.id;
       try {
         const deleteChat=await Chat.findByIdAndDelete(_id);
         console.log("Chat deleted");
         const getAllChat=await Chat.find();
-        console.log(getAllChat);
+        // console.log(getAllChat);
         socket.emit("receive_message",getAllChat)
         socket.broadcast.emit("receive_message",getAllChat)
       } catch (error) {
@@ -82,7 +90,7 @@ io.on("connection",(socket)=>{
           );
         console.log("Chat updated");
         const getAllChat=await Chat.find();
-        console.log(getAllChat);
+        // console.log(getAllChat);
         socket.emit("receive_message",getAllChat)
         socket.broadcast.emit("receive_message",getAllChat) 
       } catch (error) {

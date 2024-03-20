@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 
 
@@ -22,6 +22,8 @@ function Header() {
     setShowform((showform)=>!showform)
     
   }
+
+
   
  //css
   const buttoncss = {
@@ -49,7 +51,7 @@ function Header() {
 
   return (
     <header >
-    
+    {/* <button>Start</button> */}
      <nav>
      
         <ul style={buttoncss.list}>

@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div style={{ width:'70vw'}}>
-
+      
       <Header />
       <NoteContainer >
 

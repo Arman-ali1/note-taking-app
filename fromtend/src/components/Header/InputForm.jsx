@@ -90,6 +90,10 @@ function InputForm() {
   };
 
  
+  // useEffect(()=>{
+    // socket.emit("all-message",{});
+  // },[])
+
   return (
     <div style={InputFormcss.container}>
       <h2>New Note...</h2>

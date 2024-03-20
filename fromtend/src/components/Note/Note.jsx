@@ -25,8 +25,9 @@ const notecss = {
   "justifyContent": "center",
   " userSelect": "none",
   " fontWeight": "bolder",
-  "color": "black",
+  "color": "white",
   "margin": "10px",
+  "padding": "20px",
 };
 
 const txtarea={
@@ -76,9 +77,9 @@ function Note({_id,author,title ,content}) {
 
   return (
     <>
-      <div>
-        <div style={notecss}>
-          <div >
+      <div >
+        <div style={notecss} className="shadow-xl shadow-slate-400 " >
+          <div className="shadow-xl  shadow-neutral-950" >
             <h3 style={{color:"blue", "fontSize":"30px"}} className="title">{title}</h3>
             <textarea
             style={update?txtarea:editTxtarea}
@@ -95,13 +96,13 @@ function Note({_id,author,title ,content}) {
           </div>
         </div>
           <div style={{"display" :"flex","justifyContent": "space-between","minWidth": "300px","cursor":"pointer", "padding":"3px 10px"}}>
-            <img src={deleteimg} onClick={()=>handleDelete(_id)}  alt="delete" />
+            <img src={deleteimg} onClick={()=>handleDelete(_id)}  alt="delete" className="bg-white pr-2 pl-2 p-1 rounded-lg"/>
             {update?
-            (<img src={editing} onClick={()=>{
+            (<img className="bg-white pr-2 pl-2 p-1 rounded-lg" src={editing} onClick={()=>{
               changeIcon()
             }} alt="edit" /> )
             :
-            (<img src={check} onClick={()=>{
+            (<img className="bg-white pr-2 pl-2 p-1 rounded-lg" src={check} onClick={()=>{
               handleUpdate()
               changeIcon()
             }} alt="save" /> )

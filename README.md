@@ -1,5 +1,5 @@
 ########note-taking-app <br>
-set up and installation <br>
+set up and installation- <br>
 1 step-clone or download zip file of repository <br>
 loacaly set up======== <br>
 ``backend set up``

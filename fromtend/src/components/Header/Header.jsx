@@ -19,6 +19,7 @@ function Header() {
 
   const [showform,setShowform] = useState(false);
   const AddNote = ()=>{
+    
     setShowform((showform)=>!showform)
     
   }

@@ -12,17 +12,23 @@ const app = express();
 dbconn()
 const server = http.createServer(app)
 
+app.use((req,res,next)=>{
+  res.setHeader('Access-Control-Allow-Origin','*');
+  res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+  res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+  next(); 
+})
 // app.use(cors({
 //   origin: process.env.CORS_ORIGIN,
 //     // credentials: true
 // }))
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const io=new Server(server,{
   cors:{
-    origin:"http://localhost:5173",
+    origin:"*",
     methods:["GET","POST"]
   },
 

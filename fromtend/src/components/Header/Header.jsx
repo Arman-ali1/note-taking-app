@@ -53,7 +53,7 @@ function Header() {
     <header >
     {/* <button>Start</button> */}
      <nav>
-     
+     <h1 className='text-3xl text-white font-bold text-center mt-3'>Note <span className='text-black pr-3 pl-3  bg-white'>Solution</span></h1>
         <ul style={buttoncss.list}>
         
             {

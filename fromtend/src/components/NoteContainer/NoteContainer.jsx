@@ -3,7 +3,7 @@ import Note from "../Note/Note";
 import  io  from "socket.io-client";
 import PORT from "../../dbport/dbport.jsx";
 // import axios from 'axios';
-const socket=io.connect(`http://localhost:${PORT}`);
+const socket=io.connect(`https://note-taking-app-d3fb.onrender.com`);
 
 const text= {
   fontSize: "0.75rem",
@@ -46,7 +46,7 @@ function NoteContainer() {
     
     
   };
-
+ const[flage,setFlage]=useState(false)
   useEffect(() => {
     console.log("useE start");
     socket.on("receive_message",(data)=>{
@@ -62,21 +62,23 @@ function NoteContainer() {
   }, [socket])
   useEffect(()=>{
     socket.emit("all-message",{});
+    setFlage(true)
   } ,[])
 
+  // const flage=false;
   return (
     <div>
       <label htmlFor="input" style={text} className="text">
           Chat-Container
         </label>
-      <div >
+      {flage?<div >
         {notes.map((note) => (
           <div key={note._id}>
             <Note  {...note} />
             
           </div>
         ))}
-      </div>
+      </div>:<h1>loading....</h1>}
     </div>
     
   );

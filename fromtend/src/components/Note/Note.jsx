@@ -7,7 +7,7 @@ import io from 'socket.io-client'
 import PORT from "../../dbport/dbport.jsx";
 
 
-const socket=io.connect(`http://localhost:${PORT}`);
+const socket=io.connect(`https://note-taking-app-d3fb.onrender.com`);
 const notecss = {
   "boxSizing": " border-box",
   "minWidth": "300px",

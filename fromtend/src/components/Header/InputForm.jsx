@@ -71,7 +71,7 @@ const InputFormcss = {
   },
 };
 
-const socket=io.connect(`http://localhost:${PORT}`);
+const socket=io.connect(`https://note-taking-app-d3fb.onrender.com`);
 function InputForm() {
   const [author, setAuthor] = useState();
   const [title, setTitle] = useState();
